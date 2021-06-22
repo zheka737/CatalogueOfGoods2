@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { CatalogueOfGoodsComponent } from  "./components/catalogueOfGoods/catalogueOfGoods.component"
 import { ModelModule } from "./models/modelModule";
@@ -12,6 +11,7 @@ import { ErrorHandler } from "@angular/core";
 import { ErrorHandlerService } from "./components/errorHandler.service";
 
 import { AppComponent } from './components/app/app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const eHandler = new ErrorHandlerService();
 export function handler() {
@@ -24,7 +24,7 @@ export function handler() {
     ],
     imports: [
         CommonModule,
-        HttpModule,
+        HttpClientModule,
         FormsModule,
         RouterModule.forRoot([
             { path: "createEditProduct/:id", component: CreateEditProductComponent },

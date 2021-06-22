@@ -2,7 +2,6 @@
 import { Router, ActivatedRoute } from "@angular/router";
 import { Repository } from "../../models/repository";
 import { Product } from "../../models/product.model";
-import { Http, RequestMethod, Request, Response } from "@angular/http";
 
 @Component({
     selector: "deleteProductComponent",
@@ -21,7 +20,7 @@ export class DeleteProductComponent {
            throw "Id is not specified";
         }
 
-        this.repo.sendRequest(RequestMethod.Get, this.repo.url + "/" + id).subscribe(
+        this.repo.sendRequest("GET", this.repo.url + "/" + id).subscribe(
             response => this.product = response);
     }
 

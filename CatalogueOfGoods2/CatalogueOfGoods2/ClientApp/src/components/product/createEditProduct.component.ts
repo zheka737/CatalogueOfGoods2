@@ -2,7 +2,6 @@
 import { Router, ActivatedRoute } from "@angular/router";
 import { Repository } from "../../models/repository";
 import { Product } from "../../models/product.model";
-import { Http, RequestMethod, Request, Response } from "@angular/http";
 import { Colors } from "../../models/product.model";
 
 @Component({
@@ -16,7 +15,7 @@ export class CreateEditProductComponent {
         let id = Number.parseInt(activeRoute.snapshot.params["id"]);
 
         if (id) {
-            this.repo.sendRequest(RequestMethod.Get, this.repo.url + "/" + id).subscribe(
+            this.repo.sendRequest("GET", this.repo.url + "/" + id).subscribe(
                 response => this.product = response);
         } else {
             this.product = new Product(0);

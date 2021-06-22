@@ -1,6 +1,5 @@
 ﻿import { Injectable } from "@angular/core";
-import { Subject } from "rxjs/Subject";
-import { Observable } from "rxjs/Observable";
+import { Observable, Subject } from "rxjs";
 @Injectable()
 export class ErrorHandlerService {
     private subject = new Subject<string[]>();

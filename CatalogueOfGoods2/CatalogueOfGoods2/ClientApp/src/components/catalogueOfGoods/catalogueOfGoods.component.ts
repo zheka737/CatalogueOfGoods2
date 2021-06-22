@@ -1,7 +1,6 @@
 ﻿import { Component } from "@angular/core";
 import { Repository } from "../../models/repository";
 import { Product } from "../../models/product.model";
-import { Http, RequestMethod, Request, Response } from "@angular/http";
 import "../../models/repository";
 import { Colors } from "../../models/product.model";
 
@@ -59,7 +58,7 @@ export class CatalogueOfGoodsComponent
     }
 
     getColorName(product: Product): string {
-        return Colors[product.color];
+        return Colors[product.color ?? 0];
     }
 
     filterSwitch() {

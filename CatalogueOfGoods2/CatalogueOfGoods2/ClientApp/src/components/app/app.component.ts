@@ -7,13 +7,13 @@ import { ErrorHandlerService } from "../errorHandler.service";
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    private lastError: string[];
+    private lastError: string[] | null;
     constructor(errorHandler: ErrorHandlerService) {
-        errorHandler.errors.subscribe(error => {
+        errorHandler.errors.subscribe((error: any) => {
             this.lastError = error;
         });
     }
-    get error(): string[] {
+    get error(): string[] | null {
         return this.lastError;
     }
     clearError() {
