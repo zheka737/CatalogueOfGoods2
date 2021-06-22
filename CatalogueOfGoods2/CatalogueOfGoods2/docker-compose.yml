@@ -1,0 +1,20 @@
+﻿version: '3.7'
+
+services:
+
+  aspnetcore:
+    container_name: aspnetcore
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '5000:5000'
+
+  angular:
+    container_name: angular
+    build:
+      context: ./ClientApp
+      dockerfile: Dockerfile
+    ports:
+      - '4200:4200'
+
