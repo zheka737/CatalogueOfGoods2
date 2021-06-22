@@ -16,7 +16,7 @@ export class CreateEditProductComponent {
 
         if (id) {
             this.repo.sendRequest("GET", this.repo.url + "/" + id).subscribe(
-                response => this.product = response);
+                response => this.product = response.body);
         } else {
             this.product = new Product(0);
         }

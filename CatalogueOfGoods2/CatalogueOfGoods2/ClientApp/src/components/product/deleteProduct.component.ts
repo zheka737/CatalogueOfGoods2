@@ -21,7 +21,7 @@ export class DeleteProductComponent {
         }
 
         this.repo.sendRequest("GET", this.repo.url + "/" + id).subscribe(
-            response => this.product = response);
+            response => this.product = response.body);
     }
 
     deleteProduct() {
