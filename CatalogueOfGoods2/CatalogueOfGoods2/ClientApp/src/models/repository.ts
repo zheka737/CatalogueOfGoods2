@@ -46,7 +46,26 @@ export class Repository {
             url = url + "&color=" + this.catalogueSettings.colorFilter;
         }
 
-        this.sendRequest("GET", url, ).subscribe(response => this.products = (response == null || response == undefined ? [] : response ));
+        this.sendRequest("GET", url, ).subscribe(
+            {
+                next: response => {
+                    this.products = (response.body == null || response.body == undefined ? [] : response.body )},
+                error: (errorResponse: Response) => {
+                    if (errorResponse.status == 400) {
+                        let jsonData: any;
+                        try {
+                            jsonData = errorResponse.json();
+                        } catch (e) {
+                            throw new Error("Network Error");
+                        }
+                        let messages = Object.getOwnPropertyNames(jsonData)
+                            .map(p => jsonData[p]);
+                        throw new ValidationError(messages);
+                    }
+                    throw new Error("Network Error");
+                }
+                    
+            });           
     }
 
     createProduct(product: Product) {
