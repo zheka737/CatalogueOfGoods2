@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using CatalogueOfGoods2.Models;
 using CatalogueOfGoods2.Models.BindingTargets;
@@ -96,6 +98,10 @@ namespace CatalogueOfGoods2.Controllers
         [HttpPost]
         public IActionResult CreateProduct([FromBody] ProductData productData)
         {
+
+
+           
+
             if (ModelState.IsValid)
             {
                 Product product = productData.Product;
@@ -107,6 +113,7 @@ namespace CatalogueOfGoods2.Controllers
             {
                 return BadRequest(ModelState);
             }
+            
         }
 
 

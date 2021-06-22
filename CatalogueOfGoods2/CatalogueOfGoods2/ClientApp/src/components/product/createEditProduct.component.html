@@ -13,7 +13,7 @@
 
     <div class="form-group" style="margin: 10px 10px 10px 10px;">
         <label>Quantity</label>
-        <input class="form-control" [(ngModel)]="product.quantity" />
+        <input type="number" class="form-control" [(ngModel)]="product.quantity" />
     </div>
 
     <button style="margin: 10px 10px 10px 10px;" (click) ="saveProduct()" class="btn btn-primary">Save</button>
